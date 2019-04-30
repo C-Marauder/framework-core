@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Framework</string>
+    <string name="unconnected_network">当前未连接网络</string>
+
+</resources>

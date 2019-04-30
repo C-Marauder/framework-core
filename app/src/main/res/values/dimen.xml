@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_text_size_unLogin1">24sp</dimen>
+    <dimen name="card_text_size_login1">12sp</dimen>
+    <dimen name="card_text_size_unLogin2">18sp</dimen>
+    <dimen name="card_text_size_login2">36sp</dimen>
+    <dimen name="toolbar_title_size">18sp</dimen>
+</resources>

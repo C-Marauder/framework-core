@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#F05A5B</color>
+    <color name="weak_gray">#f9f9f9</color>
+    <color name="card_gray">#fff9f9f9</color>
+    <color name="gray">#e0e0e0</color>
+    <color name="bg_gray">#f9f9f9</color>
+    <color name="normal_gray">#cdcdcd</color>
+    <color name="active_color">#223261</color>
+    <color name="weak_white">#fafafa</color>
+    <color name="tab_social_security">#89db97</color>
+    <color name="tab_credit_card">#6c89ef</color>
+    <color name="tab_provident_fund">#dd6a4f</color>
+    <color name="red">#c30000</color>
+</resources>
