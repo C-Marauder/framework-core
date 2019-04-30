@@ -24,3 +24,9 @@ Android框架核心模块，包含：
 
 > 实际获取数据相关类。图一是单纯的从网络获取数据；图二是对数据保存更新的操作 
 
+## 三.Contract(逻辑协议类)
+
+<img src="https://github.com/xqy666666/Framework-core/blob/master/contract.png"  alt="repository2"/>
+
+
+
