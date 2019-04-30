@@ -9,11 +9,4 @@ class HomeRepository: AppRepository<ApiService,String,String>() {
     override fun requestFromNetwork(apiService: ApiService, requestType: String): Call<String> {
         return apiService.getThings(requestType)
     }
-
-
-//    override fun  requestFromNetwork(requestType: City): Call<String> {
-//        return App.apiService.getThings(requestType)
-//    }
-
-
 }
