@@ -12,11 +12,15 @@ Android框架核心模块，包含：
 
 ## 二.Repository
 
-## * 图一
+## 图一
 
 <img src="https://github.com/xqy666666/Framework-core/blob/master/repository.png"  alt="repository"/>
 
-## * 图二
+## 图二
 
-> 实际获取数据相关类 
+> 继承DataBaseCallback
+
+<img src="https://github.com/xqy666666/Framework-core/blob/master/repository2.png"  alt="repository2"/>
+
+> 实际获取数据相关类。图一是单纯的从网络获取数据；图二是对数据保存更新的操作 
 
