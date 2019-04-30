@@ -16,7 +16,6 @@ val String?.errorMsg: String
         this
     }
 
-typealias OnViewCreated = (isCreated:Boolean)->Boolean
 typealias OnLoading = () -> Unit
 typealias OnError = (message: String) -> Unit
 typealias OnSuccess<ResultType> = (data: ResultType) -> Unit
