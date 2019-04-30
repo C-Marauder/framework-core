@@ -28,5 +28,6 @@ Android框架核心模块，包含：
 
 <img src="https://github.com/xqy666666/Framework-core/blob/master/contract.png"  alt="repository2"/>
 
+> Contract注解中的参数表示要绑定到的Activity或Fragment。Presenter相关类不需要初始化，会自动绑定到Activity和Fragment的生命周期。在Presenter中可通过调用mView.request()进行网络请求。第一个参数表示你要调用的Api请求。必须是Service注解所绑定的参数。
 
 
