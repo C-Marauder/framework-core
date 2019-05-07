@@ -1,4 +1,14 @@
 # framework-core
+
+**使用**
+
+* 依赖
+```
+implementation 'com.androidx.frameworkcore:framework-core:1.0.0'
+implementation 'com.androidx.processor:processor:1.0.3'
+kapt 'com.androidx.processor:processor:1.0.3'
+```
+
 Android框架核心模块，包含：
 
 * 1.注解模块
