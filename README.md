@@ -1,10 +1,12 @@
 # framework-core
 
-**使用**
+[ ![Download](https://api.bintray.com/packages/xqy666666/maven/framework-core/images/download.svg?version=1.0.1) ](https://bintray.com/xqy666666/maven/framework-core/1.0.1/link)
+
+[ ![Download](https://api.bintray.com/packages/xqy666666/maven/processor/images/download.svg?version=1.0.3) ](https://bintray.com/xqy666666/maven/processor/1.0.3/link)
 
 * 依赖
 ```
-implementation 'com.androidx.frameworkcore:framework-core:1.0.0'
+implementation 'com.androidx.frameworkcore:framework-core:1.0.1'
 implementation 'com.androidx.processor:processor:1.0.3'
 kapt 'com.androidx.processor:processor:1.0.3'
 ```
