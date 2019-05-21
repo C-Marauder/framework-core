@@ -1,4 +1,16 @@
 # framework-core
+
+[ ![Download](https://api.bintray.com/packages/xqy666666/maven/framework-core/images/download.svg?version=1.0.3) ](https://bintray.com/xqy666666/maven/framework-core/1.0.1/link)
+
+[ ![Download](https://api.bintray.com/packages/xqy666666/maven/processor/images/download.svg?version=1.0.3) ](https://bintray.com/xqy666666/maven/processor/1.0.3/link)
+
+* 依赖
+```
+implementation 'com.androidx.frameworkcore:framework-core:1.0.3'
+implementation 'com.androidx.processor:processor:1.0.3'
+kapt 'com.androidx.processor:processor:1.0.3'
+```
+
 Android框架核心模块，包含：
 
 * 1.注解模块
@@ -30,7 +42,7 @@ Android框架核心模块，包含：
 
 > Contract注解中的参数表示要绑定到的Activity或Fragment。Presenter相关类不需要初始化，会自动绑定到Activity和Fragment的生命周期。在Presenter中可通过调用mView.request()进行网络请求。第一个参数表示你要调用的Api请求。必须是Service注解所绑定的参数。
 
-## 四.Activity或Fragment实现AppView的接口
+## 四.Activity或Fragment实现Contract协议类中AppView的子接口
 
 <img src="https://github.com/xqy666666/Framework-core/blob/master/mainActivity.png"  alt="Activity"/>
 
