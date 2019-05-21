@@ -1,1 +1,1 @@
-include ':app' ,':frameworkcore', ':annotation'
+include ':app' , ':framework-core', ':processor'

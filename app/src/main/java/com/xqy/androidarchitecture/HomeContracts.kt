@@ -1,12 +1,10 @@
 package com.xqy.androidarchitecture
 import android.util.Log
+import com.androidx.frameworkcore.mvi.*
 import com.androidx.processor.Contract
 import com.androidx.processor.Presenter
-import com.androidx.frameworkcore.mvi.AppPresenter
-import com.androidx.frameworkcore.mvi.AppView
-import com.androidx.frameworkcore.request
 
-@Contract(["MainActivity","HomeFragment"])
+@Contract(["HomeFragment"])
 class HomeContracts {
 
     interface HomeView: AppView {
@@ -14,20 +12,12 @@ class HomeContracts {
 
     @Presenter
     class HomePresenter(mView: HomeView) : AppPresenter<HomeView>(mView) {
-
-        override fun onCreate() {
-            super.onCreate()
-            Log.e("===","=====>>>")
-            mView.request<String, String>("getThings", "2", {
-
-            }, {
-
-            }, {
-
-            })
-
+        override fun onCreated() {
+            super.onCreated()
+            Log.e("->>>--","onCreated")
 
         }
+
     }
 
 

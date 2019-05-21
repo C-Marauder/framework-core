@@ -6,14 +6,14 @@ import kotlin.properties.Delegates
 
 class App:Application() {
     companion object {
-        var app by Delegates.notNull<App>()
-        private val httpUrl:String ="http://v.juhe.cn/movie/"
+        var instance by Delegates.notNull<App>()
+        private val httpUrl:String ="http://gank.io/api/xiandu/"
 
     }
 
     override fun onCreate() {
         super.onCreate()
-        app=this
+        instance=this
         AndroidApplication.run(this,ApiService::class.java, httpUrl)
         //DatabaseManager.initRealm(this)
         //val dog = Dog::class
