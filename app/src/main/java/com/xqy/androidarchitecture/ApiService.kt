@@ -1,12 +1,11 @@
 package com.xqy.androidarchitecture
 
-import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
+import com.androidx.annotation.ApiService
+import com.xqy.androidx.framework.ApiResponse
 import retrofit2.http.POST
 
+@ApiService
 interface ApiService {
-
-    @GET("categories")
-    fun getThings():Call<String>
+    @POST
+    fun bb(): ApiResponse<MutableList<String>>
 }

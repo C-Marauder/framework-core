@@ -1,13 +1,12 @@
-apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin:'kotlin-kapt'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 'android-Q'
     defaultConfig {
         applicationId "com.xqy.androidarchitecture"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -29,7 +28,7 @@ android {
         all*.exclude group: 'com.google.guava', module: 'listenablefuture'
     }
     packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
+        exclude 'META-INF.META-INF/atomicfu.kotlin_module'
     }
     compileOptions {
         sourceCompatibility = "8"
@@ -40,17 +39,15 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 //    implementation 'com.androidx.processor:processor:1.0.3'
 //    kapt 'com.androidx.processor:processor:1.0.3'
     implementation project(':framework-core')
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation project(path: ':processor')
     kapt project(path: ':processor')
-
+    implementation project(path: ':framework-core')
 
 
 }

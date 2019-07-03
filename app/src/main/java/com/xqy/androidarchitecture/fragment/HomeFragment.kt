@@ -11,31 +11,49 @@ import com.xqy.androidarchitecture.HomeContracts
 import com.xqy.androidarchitecture.R
 
 class HomeFragment:Fragment(),HomeContracts.HomeView {
-    override val mFragmentLifecycle: MutableLiveData<Int>? by lazy {
-        MutableLiveData<Int>()
-    }
 
     companion object{
         fun  getInstance() = HomeFragment()
     }
-    init {
-        with(lifecycleScope){
-            launchWhenCreated {
-                Log.e("==","==launchWhenCreated==")
-            }
+    private val observer = LifecycleEventObserver { source, event ->
+        if (source.lifecycle.currentState > Lifecycle.State.CREATED) {
+           if (event == Lifecycle.Event.ON_START){
+               Log.e("===","event")
 
-            launchWhenStarted {
-                Log.e("==","==launchWhenStarted==")
-            }
+           }else{
+               Log.e("===","===>>>")
+           }
+
         }
+    }
+    init {
+
+
+        //lifecycle.addObserver(observer)
+        lifecycleScope.launchWhenCreated {
+
+        }
+
 
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("====","onCreate=====>>")
+
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.e("====","onCreateView=====>>")
 
         return inflater.inflate(R.layout.f_home,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.e("====","onViewCreated=====>>")
+
     }
 
     override fun onStart() {
@@ -46,3 +64,4 @@ class HomeFragment:Fragment(),HomeContracts.HomeView {
 
 
 }
+

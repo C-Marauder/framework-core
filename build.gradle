@@ -2,12 +2,13 @@
 
 buildscript {
     ext{
-        kotlin_version = '1.3.31'
+        kotlin_version = '1.3.40'
+        coroutines_version = "1.2.1"
         nav_version = "1.0.0-alpha09"
         work_version = "1.0.0-beta01"
         material_version = '1.0.0'
-        lifecycle_version = "2.0.0"
-        retrofit2_version = "2.5.0"
+        lifecycle_version = "2.2.0-alpha01"
+        retrofit2_version = "2.6.0"
     }
     repositories {
         google()
@@ -28,10 +29,26 @@ allprojects {
     repositories {
         google()
         jcenter()
-
+        maven {
+            url  "https://dl.bintray.com/xqy666666/maven"
+        }
     }
 }
+subprojects {
+    if (it.name == 'processor'||it.name=='api-processor'||it.name == 'annotation'){
+        apply plugin: 'kotlin'
 
+    }else if (it.name == 'app'){
+        apply plugin: 'com.android.application'
+
+    }else {
+        apply plugin: 'com.android.library'
+
+    }
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    }
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

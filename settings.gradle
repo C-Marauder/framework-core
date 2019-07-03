@@ -1,1 +1,1 @@
-include ':app' , ':framework-core', ':processor'
+include ':app', ':framework-viewmodel', ':annotation', ':framework-core', ':processor'
