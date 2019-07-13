@@ -74,7 +74,7 @@ class AnnotationProcessor : AbstractProcessor() {
         pkgName = if (moduleElement == null) {
             GENERATED_PACKAGE_NAME
         } else {
-            GENERATED_PACKAGE_NAME + "."+moduleElement.simpleName
+            GENERATED_PACKAGE_NAME + "." + moduleElement.simpleName
         }
 
         if (mRepositoryElement.isNullOrEmpty()) return false
@@ -96,7 +96,9 @@ class AnnotationProcessor : AbstractProcessor() {
                     )
                 )
         ).build()
-        val constructorBuilder = FunSpec.constructorBuilder().addParameter(mRepositoryHashMap)
+
+        val constructorBuilder = FunSpec.constructorBuilder()
+        constructorBuilder.addParameter(mRepositoryHashMap)
         val mView = ClassName(MVI_PACKAGE, VIEW_CLASS_NAME)
         mRepositoryElement.forEach {
             val key = it.getAnnotation(Service::class.java).name
@@ -157,7 +159,9 @@ class AnnotationProcessor : AbstractProcessor() {
             .build()
         val kaptKotlinGeneratedDir = processingEnv.options[KAPT_KOTLIN_GENERATED_OPTION_NAME]!!
         file.writeTo(File(kaptKotlinGeneratedDir))
-        apiServiceFile.writeTo(File(kaptKotlinGeneratedDir))
+        if (!mApiServiceElement.isNullOrEmpty()) {
+            apiServiceFile.writeTo(File(kaptKotlinGeneratedDir))
+        }
         return true
 
     }
@@ -165,8 +169,28 @@ class AnnotationProcessor : AbstractProcessor() {
     private fun createMethod(builder: TypeSpec.Builder, executableElement: ExecutableElement?) {
         executableElement?.let {
             with(FunSpec.builder(it.simpleName.toString())) {
-                it.annotationMirrors.forEach {
-                    addAnnotation(AnnotationSpec.get(it))
+                it.annotationMirrors.forEach { annotationMirror ->
+                    val annotationName = annotationMirror.annotationType.asElement().simpleName.toString()
+                    if (annotationName != "NotNull") {
+                        addAnnotation(AnnotationSpec.get(annotationMirror))
+
+                    }
+                }
+                it.parameters.forEach { variableElement ->
+                    var parameterSpec: ParameterSpec.Builder? = null
+                    variableElement.annotationMirrors.forEach {
+                        parameterSpec = ParameterSpec.builder(
+                            variableElement.simpleName.toString(),
+                            variableElement.asType().asTypeName()
+                        )
+                            .addAnnotation(AnnotationSpec.get(it))
+
+                    }
+                    addParameter(parameterSpec!!.build())
+
+                }
+                if (it.receiverType != null) {
+
                 }
                 addModifiers(KModifier.ABSTRACT)
                 returns(it.returnType.asTypeName())

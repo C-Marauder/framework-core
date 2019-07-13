@@ -103,8 +103,6 @@ abstract class AbsRepository<Params, Result> {
                             is ApiEmptyResponse -> Resource.empty()
 
                             is ApiErrorResponse -> Resource.error(msg)
-
-                            else -> Resource.empty()
                         }
                     }
                 }

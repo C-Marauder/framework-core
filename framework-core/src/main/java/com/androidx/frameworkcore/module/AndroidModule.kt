@@ -13,7 +13,7 @@ import kotlin.reflect.full.primaryConstructor
  **/
 interface AndroidModule:IModule {
     fun initAndroidModule(retrofiter: Retrofiter?){
-        initModule(retrofiter,PresenterManager.mPresenterMap)
+        initModule(retrofiter, PresenterManager.mPresenterMap)
     }
 
     fun bind(mAppView: AppView){

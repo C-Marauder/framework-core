@@ -15,27 +15,7 @@ class HomeFragment:Fragment(),HomeContracts.HomeView {
     companion object{
         fun  getInstance() = HomeFragment()
     }
-    private val observer = LifecycleEventObserver { source, event ->
-        if (source.lifecycle.currentState > Lifecycle.State.CREATED) {
-           if (event == Lifecycle.Event.ON_START){
-               Log.e("===","event")
 
-           }else{
-               Log.e("===","===>>>")
-           }
-
-        }
-    }
-    init {
-
-
-        //lifecycle.addObserver(observer)
-        lifecycleScope.launchWhenCreated {
-
-        }
-
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

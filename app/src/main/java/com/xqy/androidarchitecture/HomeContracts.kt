@@ -4,7 +4,7 @@ import com.androidx.annotation.Contract
 import com.androidx.frameworkcore.logic.AppPresenter
 import com.androidx.frameworkcore.logic.AppView
 
-@Contract(["MainActivity"])
+@Contract(["HomeFragment"])
 class HomeContracts {
 
     interface HomeView: AppView {

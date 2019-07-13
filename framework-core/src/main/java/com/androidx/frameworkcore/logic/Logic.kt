@@ -66,6 +66,8 @@ interface AppView {
     val mLifecycleScope:LifecycleCoroutineScope get() = mLifecycleOwner.lifecycleScope
 }
 
+
+
 internal object PresenterManager{
     val mPresenterMap:ConcurrentHashMap<KClass<out AppPresenter<out AppView>>,String> by lazy {
         ConcurrentHashMap<KClass<out AppPresenter<out AppView>>,String>()

@@ -17,9 +17,9 @@ object AndroidApplication : Application.ActivityLifecycleCallbacks {
     private val mAndroidModules: MutableList<AndroidModule> by lazy {
         mutableListOf<AndroidModule>()
     }
-
+    private lateinit var mAppModule: AppModule
     fun run(
-        vararg childModules: KClass<AndroidModule>,
+        vararg childModules: KClass<out AndroidModule>,
         application: Application,
         baseUrl: String,
         retrofiter: Retrofiter? = null
@@ -31,15 +31,15 @@ object AndroidApplication : Application.ActivityLifecycleCallbacks {
             }
 
             apiService {
-                Class.forName("com.xqy.androidx.framework.service" + "AndroidService")
+                Class.forName("com.xqy.androidx.framework.service.AndroidService")
             }
 
         }
-        mAndroidModules.add(AppModule())
+        mAppModule = AppModule()
         if (!childModules.isNullOrEmpty()) {
             childModules.forEach {
                 it.createInstance().apply {
-                    initAndroidModule(Retrofiter.mInstance!!)
+                    initAndroidModule(Retrofiter.mInstance)
                     mAndroidModules.add(this)
                 }
             }
@@ -84,9 +84,7 @@ object AndroidApplication : Application.ActivityLifecycleCallbacks {
                     override fun onFragmentPreCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
                         super.onFragmentPreCreated(fm, f, savedInstanceState)
                         if (f is AppView){
-                            mAndroidModules.forEach {
-                                it.bind(f)
-                            }
+                            mAppModule.bind(f)
                         }
                     }
 

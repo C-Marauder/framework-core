@@ -1,6 +1,7 @@
 package com.xqy.androidarchitecture
 
 import android.app.Application
+import com.androidx.frameworkcore.application.AndroidApplication
 import kotlin.properties.Delegates
 
 class App:Application() {
@@ -15,5 +16,6 @@ class App:Application() {
         instance=this
         //DatabaseManager.initRealm(this)
         //val dog = Dog::class
+        AndroidApplication.run(application = this,baseUrl = httpUrl)
     }
 }

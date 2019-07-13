@@ -2,4 +2,4 @@
 sourceCompatibility = "8"
 targetCompatibility = "8"
 
-//apply from: 'config.gradle'
+apply from: 'config.gradle'
