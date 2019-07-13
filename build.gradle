@@ -35,7 +35,7 @@ allprojects {
     }
 }
 subprojects {
-    if (it.name == 'processor'||it.name=='api-processor'||it.name == 'framework-annotation'){
+    if (it.name == 'processor'||it.name=='api-processor'||it.name == 'annotation'){
         apply plugin: 'kotlin'
 
     }else if (it.name == 'app'){
